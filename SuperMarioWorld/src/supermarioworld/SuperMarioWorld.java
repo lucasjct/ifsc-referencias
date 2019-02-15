@@ -3,19 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package simulacaosala;
+package supermarioworld;
+
+import modelo.ColecaoItens;
+import modelo.Item;
+import modelo.Mario;
 
 /**
  *
  * @author aluno
  */
-public class Simulacaosala {
+public class SuperMarioWorld {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int [] x;
+        ColecaoItens colecao = new ColecaoItens();
+        Mario mario = new Mario();
+        
+        mario.setEstado(98999);
+        System.out.println(colecao.todos[2].surte_efeitos(mario));
     }
     
 }
