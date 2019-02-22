@@ -9,16 +9,8 @@ package modelo;
  *
  * @author aluno
  */
-public class Mario {
-    int estado; // Pequeno (0), Grande (1), Poderoso (2)
-    boolean yoshi;
-    
-    public Mario() {
-        estado = 0;
-        yoshi = false;
-    }
+public interface Interativo {
 
-    public void setEstado(int i) {
-        estado = i;
-    }
+    public void interage(Protagonista p);
+    public boolean pode_interagir(Protagonista p);
 }

@@ -9,12 +9,7 @@ package modelo;
  *
  * @author aluno
  */
-public class ColecaoItens {
-    public final Item todos[];
-    
-    public ColecaoItens() {
-        todos = new Item[5];
-        
-        
-    }
+public interface PowerUp {
+    public boolean surte_efeitos(Protagonista p);
+    public void aplicar_efeitos(Protagonista p);
 }

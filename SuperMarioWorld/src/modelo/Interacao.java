@@ -9,6 +9,8 @@ package modelo;
  *
  * @author aluno
  */
-public interface Incremento {
-    public boolean surte_efeitos(Mario m);
+public enum Interacao {
+    ANDAR_FRENTE,
+    ANDAR_TRAS,
+    PULAR;
 }
