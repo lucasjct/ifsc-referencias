@@ -10,18 +10,21 @@ package modelo;
  * @author alexandre
  */
 public abstract class Componente implements Instalavel, Identificavel {
+    private boolean instalado;
+    private final String nome;
     
-    public Componente(String nome) {
-        // Implementar este construtor
+    public Componente(String n) {
+        nome = n;
+        instalado = false;
     }
     
     @Override
     public String nome() {
-        return ""; // Implementar este método corretamente
+        return nome;
     }
     
     @Override
     public boolean instalado() {
-        return false; // Implementar este método corretamente
+        return instalado;
     }
 }
