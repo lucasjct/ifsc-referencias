@@ -5,29 +5,36 @@
  */
 package biblioteca;
 
-import modelo.FichaTecnica;
-import modelo.GeneroLivro;
-import modelo.Livro;
+import java.util.ArrayList;
+import livro.Livro;
+import prateleira.ConstrutorIndices;
+import prateleira.Indice;
+import prateleira.IndiceAno;
+import prateleira.IndiceAutor;
+import prateleira.IndiceGenero;
 
 /**
  *
  * @author aluno
  */
 public class Biblioteca {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        FichaTecnica ficha = new FichaTecnica("Nome", "Autor", 1);
-        FichaTecnica ficha2 = new FichaTecnica("Nome", "Autor", 1);
-        
-        Livro livro = new Livro(ficha2, GeneroLivro.FANTASIA, 1999);
-        
-        System.out.println(livro.equals(ficha));
-        System.out.println(ficha.equals(livro));
-        System.out.println(ficha2.equals(ficha));
-        System.out.println(livro.equals(ficha2));
+    private final ArrayList<Indice> indices;
+//    private final IndiceAutor indiceAutor;
+//    private final IndiceGenero indiceGenero;
+//    private final IndiceAno indiceAno;
+//    
+    public Biblioteca() {
+        indices = ConstrutorIndices.criarIndices();
+//        indiceAno = new IndiceAno();
+//        indiceGenero = new IndiceGenero();
+//        indiceAutor = new IndiceAutor();
     }
     
+    public void registrarLivro(Livro livro) {
+//        indiceAno.adicionar(livro);
+//        indiceAutor.adicionar(livro);
+//        indiceGenero.adicionar(livro);
+        for(Indice i : indices)
+            i.adicionar(livro);
+    }
 }

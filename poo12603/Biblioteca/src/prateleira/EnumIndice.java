@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelo;
+package prateleira;
 
 /**
  *
  * @author aluno
  */
-public interface Identificavel extends Identidade {
-    public boolean mesmaIdentidade(Identidade i);
+public enum EnumIndice {
+    GENERO,
+    ANO,
+    AUTOR;
 }
