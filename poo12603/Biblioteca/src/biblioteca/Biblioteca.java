@@ -25,6 +25,9 @@ public class Biblioteca {
         Livro livro = new Livro(ficha2, GeneroLivro.FANTASIA, 1999);
         
         System.out.println(livro.equals(ficha));
+        System.out.println(ficha.equals(livro));
+        System.out.println(ficha2.equals(ficha));
+        System.out.println(livro.equals(ficha2));
     }
     
 }

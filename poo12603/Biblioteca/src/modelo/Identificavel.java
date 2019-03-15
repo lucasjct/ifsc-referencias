@@ -10,5 +10,5 @@ package modelo;
  * @author aluno
  */
 public interface Identificavel extends Identidade {
-    public boolean mesmaIdentidade(Identificavel i);
+    public boolean mesmaIdentidade(Identidade i);
 }

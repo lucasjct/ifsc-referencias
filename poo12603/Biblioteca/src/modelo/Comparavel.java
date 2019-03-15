@@ -13,14 +13,14 @@ public abstract class Comparavel implements Identificavel {
 
     @Override
     public boolean equals(Object obj) {
-        if(!(obj instanceof Identificavel))
+        if(!(obj instanceof Identidade))
             return false;
-        Identificavel i = (Identificavel) obj;
+        Identidade i = (Identidade) obj;
         return mesmaIdentidade(i);
     }
 
     @Override
-    public boolean mesmaIdentidade(Identificavel i) {
-        return id().equals(i.id());
+    public boolean mesmaIdentidade(Identidade i) {
+        return id().equals(i);
     }
 }
