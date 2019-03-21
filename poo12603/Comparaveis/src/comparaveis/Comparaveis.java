@@ -5,8 +5,11 @@
  */
 package comparaveis;
 
+import modelo.SacoOuro;
+import modelo.Joia;
 import java.util.ArrayList;
 import java.util.Collections;
+import modelo.ItemValioso;
 
 /**
  *
@@ -18,7 +21,7 @@ public class Comparaveis {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ArrayList<Valioso> valiosos = new ArrayList();
+        ArrayList<ItemValioso> valiosos = new ArrayList();
         
         valiosos.add(new Joia()); // Uma joia
         valiosos.add(new SacoOuro(false));  // Um saco de ouro pela metade
@@ -28,7 +31,7 @@ public class Comparaveis {
         
         // A lista estará ordenada do item com o menor valor para o item com maior valor, trocando os objetos de posição para a seguinte ordem:
         // Saco metade, Saco cheio, Joia
-        for(Valioso v : valiosos) {
+        for(ItemValioso v : valiosos) {
             System.out.println(v);
         }
     }
