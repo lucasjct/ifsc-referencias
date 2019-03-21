@@ -6,7 +6,7 @@
 package principal;
 
 import controle.ControlePrograma;
-import modelo.Sala;
+import modelo.fachada.Sala;
 
 /**
  *
