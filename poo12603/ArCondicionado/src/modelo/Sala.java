@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-package exemplo;
+package modelo;
 
 /**
  *
  * @author aluno
  */
-public class Peixe {
-    int peso;
+public class Sala {
+    
 }
