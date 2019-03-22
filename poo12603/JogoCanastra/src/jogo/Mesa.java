@@ -9,6 +9,7 @@ import baralho.Baralho;
 import baralho.Carta;
 import static java.lang.System.exit;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -16,28 +17,47 @@ import java.util.ArrayList;
  */
 public class Mesa {
     public final ArrayList<Carta> baralho, descarte;
-    private final ArrayList<Jogador> jogadores;
+    private final HashMap<EnumTime, Time> times;
     
     public Mesa() {
-        jogadores = new ArrayList();
+        times = new HashMap();
+        for(EnumTime t : EnumTime.values())
+            times.put(t, new Time(t));
         
         descarte = new ArrayList();
         baralho = Baralho.canastra();
     }
     
     public void novoJogador(Jogador j) {
-        jogadores.add(j);
+        Time t = times.get(EnumTime.A);
+        
+        if(t.quantosJogadores() > times.get(EnumTime.B).quantosJogadores())
+            t = times.get(EnumTime.B);
+        
+        t.recebeJogador(j);
+    }
+    
+    private int quantosJogadores() {
+        int i = 0;
+        
+        for(Time t : times.values())
+            i += t.quantosJogadores();
+        
+        return i;
     }
     
     private boolean podeComecar() {
-        final int njogadores = jogadores.size();
+        final int njogadores = quantosJogadores();
         return njogadores == 2 || njogadores == 4;
     }
     
     private void comprarMaoInicial() {
-        for(int i = 0; i < 11; ++i) {
-            for(Jogador j : jogadores)
-                j.comprar(this);
+        
+        for(Time t : times.values())
+            for(int i = 0; i < t.quantosJogadores(); ++i) {
+                Jogador j = t.obterJogador(i);
+                for(int w = 0; w < 11; ++w)
+                    j.comprar(this);
         }
     }
     
@@ -54,13 +74,10 @@ public class Mesa {
         String repr = "--Mesa--\n";
         repr += "\t--Descarte--\n";
         repr += "\t\t" + descarte.toString() + "\n";
-        
         repr += "\n\t--Jogadores--";
-        int i = 0;
-        for(Jogador j : jogadores) {
-            repr += "\n\t\tJogador " + i++;
-            repr += "\n\t\t\t" + j.toString();
-        }
+
+        for(Time t : times.values())
+            repr += t.toString();
         
         return repr;
     }

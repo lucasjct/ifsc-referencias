@@ -9,8 +9,7 @@ package baralho;
  * Uma abstracao para cartas que contem naipe e um valor.
  * @author alexandre
  */
-@SuppressWarnings("EqualsAndHashcode")
-public class Carta {
+public class Carta implements Comparable<Carta> {
     public final Naipe naipe;
     public final ValorCarta valor;
     
@@ -40,5 +39,10 @@ public class Carta {
             return false;
         Carta c = (Carta) o;
         return c.naipe == naipe && c.valor == valor;
+    }
+
+    @Override
+    public int compareTo(Carta o) {
+        return valor.ordem - o.valor.ordem;
     }
 }
