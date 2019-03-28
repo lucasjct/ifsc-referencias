@@ -18,34 +18,51 @@ import java.util.Collections;
 public class Jogador {
     private final ArrayList<Carta> mao;
     private EnumTime time;
+    private Mesa mesa;
     
     public Jogador() {
         mao = new ArrayList();
     }
 
-    public void comprar(Mesa mesa) {
+    private void analisarEstado() {
+        if(mesa == null)
+            throw new IllegalStateException("O jogador precisa estar em uma mesa para jogar.");
+    }
+    
+    public void comprar() {
+        analisarEstado();
         mao.add(mesa.baralho.remove(0));
     }
     
-    public void comprarDescarte(Mesa m) {
-        mao.addAll(m.descarte);
-        m.descarte.clear();
+    public void comprarDescarte() {
+        analisarEstado();
+        mao.addAll(mesa.descarte);
+        mesa.descarte.clear();
     }
     
-    public boolean descartar(Mesa mesa, int i) {
+    public boolean descartar(int i) {
+        analisarEstado();
         if(mao.size() < i)
             return false;
         mesa.descarte.add(0, mao.remove(i));
         return true;
     }
 
-    public void jogar(ArrayList<Integer> jogada) {
-        ArrayList<Carta> cartas = obtemCartasPeloIndice(jogada);
+    public boolean jogar(ArrayList<Integer> jogada) {
+        analisarEstado();
+        ArrayList<Carta> cartas;
+        
+        try {
+            cartas = obtemCartasPeloIndice(jogada);
+        }catch(IllegalArgumentException e) {
+            return false;
+        }
         
         if(!jogadaValida(cartas))
-            return;
+            return false;
         
         mao.removeAll(cartas);
+        return true;
     }
     
     @Override
@@ -53,7 +70,11 @@ public class Jogador {
         return mao.toString();
     }
 
-    public void fazParte(EnumTime representacao) {
+    void fazParte(Mesa m) {
+        mesa = m;
+    }
+    
+    void fazParte(EnumTime representacao) {
         time = representacao;
     }
     
@@ -64,6 +85,8 @@ public class Jogador {
     private ArrayList<Carta> obtemCartasPeloIndice(ArrayList<Integer> jogada) {
         ArrayList<Carta> cartas = new ArrayList();
         
+        if(jogada == null)
+            throw new IllegalArgumentException();
         for(Integer i : jogada)
             if(mao.size() > i && i > 0)
                 cartas.add(mao.get(i));

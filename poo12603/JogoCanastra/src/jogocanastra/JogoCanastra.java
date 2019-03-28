@@ -5,8 +5,9 @@
  */
 package jogocanastra;
 
+import jogo.EnumTime;
 import jogo.Jogador;
-import jogo.Mesa;
+import jogo.Time;
 
 /**
  *
@@ -18,14 +19,6 @@ public class JogoCanastra {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Mesa mesa = new Mesa();
-        
-        mesa.novoJogador(new Jogador());
-        mesa.novoJogador(new Jogador());
-        
-        mesa.comecarJogo();
-        
-        System.out.println(mesa);
     }
     
 }

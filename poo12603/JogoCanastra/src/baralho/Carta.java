@@ -18,7 +18,7 @@ public class Carta implements Comparable<Carta> {
      * @param n O naipe da instancia da carta.
      * @param v O valor da instancia da carta.
      */
-    public Carta(Naipe n, ValorCarta v) {
+    Carta(Naipe n, ValorCarta v) {
         naipe = n;
         valor = v;
     }
@@ -35,6 +35,8 @@ public class Carta implements Comparable<Carta> {
      */
     @Override
     public boolean equals(Object o) {
+        if(o == null)
+            return false;
         if(!(o instanceof Carta))
             return false;
         Carta c = (Carta) o;
@@ -43,6 +45,8 @@ public class Carta implements Comparable<Carta> {
 
     @Override
     public int compareTo(Carta o) {
+        if(o == null)
+            throw new IllegalArgumentException("Uma carta não pode se comprar com nulo.");
         return valor.ordem - o.valor.ordem;
     }
 }
