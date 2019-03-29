@@ -15,14 +15,17 @@ public class Time {
     public final EnumTime representacao;
     private final ArrayList<Jogador> jogadores;
     
-    public Time(EnumTime r) {
+    Time(EnumTime r) {
         representacao = r;
         jogadores = new ArrayList();
     }
     
-    public void recebeJogador(Jogador j) {
+    public boolean recebeJogador(Jogador j) {
+        if(j == null)
+            return false;
         jogadores.add(j);
         j.fazParte(representacao);
+        return true;
     }
     
     public int quantosJogadores() {

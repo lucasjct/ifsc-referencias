@@ -29,6 +29,8 @@ public class Mesa {
     }
     
     public void novoJogador(Jogador j) {
+        if(j == null)
+            throw new IllegalArgumentException("Um jogador nulo não pode entrar na Mesa.");
         Time t = times.get(EnumTime.A);
         
         if(t.quantosJogadores() > times.get(EnumTime.B).quantosJogadores())
@@ -52,12 +54,11 @@ public class Mesa {
     }
     
     private void comprarMaoInicial() {
-        
         for(Time t : times.values())
             for(int i = 0; i < t.quantosJogadores(); ++i) {
                 Jogador j = t.obterJogador(i);
                 for(int w = 0; w < 11; ++w)
-                    j.comprar(this);
+                    j.comprar();
         }
     }
     
