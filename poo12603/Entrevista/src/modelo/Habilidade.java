@@ -24,6 +24,7 @@ public class Habilidade {
     public Habilidade(Campo c, Graduacao g) {
         campo = c;
         graduacao = g;
+        validarHabilidade();
     }
 
     @Override

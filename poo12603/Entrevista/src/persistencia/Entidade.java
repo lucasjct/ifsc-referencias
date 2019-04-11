@@ -34,8 +34,10 @@ public abstract class Entidade {
     }
     
     protected void fecharConexao() throws SQLException {
-        if(conexao != null)
+        if(conexao != null){
             conexao.close();
+            conexao = null;
+        }
     }
     
     protected String queryBuscaIdsLista(ArrayList<Integer> ids) {
