@@ -53,7 +53,7 @@ public class Totem {
         entrada = carros.get(c);
         saida = hora;
         
-        registros.add(new Registro(entrada, saida));
+        registros.add(new Registro(entrada, saida, c.placa));
         carros.remove(c);
     }
     

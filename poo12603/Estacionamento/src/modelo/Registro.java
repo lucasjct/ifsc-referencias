@@ -12,15 +12,17 @@ package modelo;
 public class Registro {
 
     public final int entrada, saida;
+    public final String placa;
     
     private void validar() {
-        if(entrada < 0 || saida < 0)
+        if(entrada < 0 || saida < 0 || placa == null || placa.isEmpty())
             throw new IllegalArgumentException("Horario não pode ser negativo.");
     }
     
-    Registro(int e, int s) {
+    Registro(int e, int s, String p) {
         entrada = e;
         saida = s;
+        placa = p;
         validar();
     }
 
