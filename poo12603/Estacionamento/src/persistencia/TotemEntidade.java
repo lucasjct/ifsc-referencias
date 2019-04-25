@@ -19,7 +19,7 @@ public class TotemEntidade extends Entidade {
     private final HashMap<Totem, Integer> mapeamento;
     public final ArrayList<Totem> totens;
     
-    public TotemEntidade() {
+    TotemEntidade() {
         mapeamento = new HashMap();
         totens = new ArrayList();
         criarTodos();

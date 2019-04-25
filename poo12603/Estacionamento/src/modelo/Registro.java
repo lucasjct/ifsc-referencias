@@ -24,6 +24,7 @@ public class Registro {
         saida = s;
         placa = p;
         validar();
+        System.out.println("Registro Criado");
     }
 
     @Override
