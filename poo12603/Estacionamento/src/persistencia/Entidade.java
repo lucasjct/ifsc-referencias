@@ -15,7 +15,7 @@ import java.sql.Statement;
  *
  * @author aluno
  */
-public class Entidade {
+public abstract class Entidade {
     protected static final String usuario = "root";
     protected static final String senha = "aluno";
     protected static final String url = "jdbc:mysql://localhost/Estacionamento";

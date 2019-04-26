@@ -7,6 +7,7 @@ package principal;
 
 import modelo.Totem;
 import modelo.TotemCentral;
+import persistencia.CamadaPersistencia;
 
 /**
  *
@@ -18,14 +19,7 @@ public class Principal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        TotemCentral fachada = new TotemCentral();
-        
-        fachada.novoCarro("AAA");
-        fachada.novoTotem("Rua B");
-        
-        fachada.estacionar("AAA", "Rua B");
-        fachada.passarTempo();
-        fachada.sairEstacionamento("AAA");
+        for(Totem t : CamadaPersistencia.totem.totens)
+            System.out.println(t.rua);
     }
-    
 }
