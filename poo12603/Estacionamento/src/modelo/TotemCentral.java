@@ -7,6 +7,7 @@ package modelo;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import persistencia.CamadaPersistencia;
 
 /**
  *
@@ -20,10 +21,9 @@ public class TotemCentral {
     public TotemCentral() {
         totens = new HashMap();
         carros = new HashMap();
-    }
-    
-    public void novoTotem(String rua) {
-        totens.put(rua, new Totem(rua));
+        
+        for(Totem t : CamadaPersistencia.totem.totens)
+            totens.put(t.rua, t);
     }
     
     public ArrayList<String> ruas() {
@@ -60,5 +60,7 @@ public class TotemCentral {
     }
     
     public void salvar() {
+        for(Totem t : totens.values())
+            CamadaPersistencia.registro.salvarRegistros(t);
     }
 }

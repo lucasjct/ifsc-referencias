@@ -16,7 +16,7 @@ import modelo.Totem;
  * @author aluno
  */
 public class TotemEntidade extends Entidade {
-    private final HashMap<Totem, Integer> mapeamento;
+    final HashMap<Totem, Integer> mapeamento;
     public final ArrayList<Totem> totens;
     
     TotemEntidade() {

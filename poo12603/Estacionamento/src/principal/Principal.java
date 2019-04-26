@@ -19,7 +19,20 @@ public class Principal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        for(Totem t : CamadaPersistencia.totem.totens)
-            System.out.println(t.rua);
+        TotemCentral fachada = new TotemCentral();
+        
+        for(String rua : fachada.ruas())
+            System.out.println(rua);
+        
+        fachada.novoCarro("AAA1234");
+        fachada.novoCarro("BBB1234");
+        fachada.estacionar(fachada.placas().get(0), fachada.ruas().get(0));
+        fachada.estacionar(fachada.placas().get(1), fachada.ruas().get(1));
+        fachada.passarTempo();
+        fachada.sairEstacionamento(fachada.placas().get(0));
+        fachada.sairEstacionamento(fachada.placas().get(1));
+        
+        fachada.salvar();
+        
     }
 }

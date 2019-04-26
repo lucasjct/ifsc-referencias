@@ -11,4 +11,7 @@ package persistencia;
  */
 public class CamadaPersistencia {
     public static final TotemEntidade totem = new TotemEntidade();
+    public static final RegistroEntidade registro = new RegistroEntidade();
+    
+    private CamadaPersistencia() {}
 }

@@ -60,6 +60,11 @@ public class Totem {
     public void incrementaHora() {
         ++hora;
     }
+    
+    public ArrayList<Registro> registros() {
+        //return (ArrayList<Registro>) registros.clone();
+        return registros;
+    }
 
     @Override
     public String toString() {
