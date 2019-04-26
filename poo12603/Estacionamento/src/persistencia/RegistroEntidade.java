@@ -20,6 +20,7 @@ public class RegistroEntidade extends Entidade {
     public void salvarRegistros(Totem t) {
         try {
             abrirConexao();
+            
             final Integer idTotem = CamadaPersistencia.totem.mapeamento.get(t);
             final int nRegistros = t.registros().size();
             int idUltimoRegistro;
