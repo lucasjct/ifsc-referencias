@@ -30,6 +30,7 @@ public class Principal {
         fachada.estacionar(fachada.placas().get(1), fachada.ruas().get(1));
         fachada.passarTempo();
         fachada.sairEstacionamento(fachada.placas().get(0));
+        fachada.passarTempo();
         fachada.sairEstacionamento(fachada.placas().get(1));
         
         fachada.salvar();
