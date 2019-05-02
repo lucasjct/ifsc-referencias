@@ -5,6 +5,11 @@
  */
 package principal;
 
+import java.util.ArrayList;
+import modelo.EventoEstacionamento;
+import modelo.TipoVeiculo;
+import modelo.Veiculo;
+
 /**
  *
  * @author aluno
@@ -15,7 +20,6 @@ public class Principal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
     }
     
 }
