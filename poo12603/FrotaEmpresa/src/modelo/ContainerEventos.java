@@ -10,5 +10,5 @@ package modelo;
  * @author aluno
  */
 public interface ContainerEventos {
-    public void registrarEvento(EventoEstacionamento e);
+    public void registrar(EventoEstacionamento e);
 }

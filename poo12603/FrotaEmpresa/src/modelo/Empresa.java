@@ -20,11 +20,9 @@ public class Empresa {
         ruas = new ArrayList();
     }
     
-    public void novoEvento(int idRua, int idVeiculo, int entrada, int saida) {
-        EventoEstacionamento evento = new EventoEstacionamento(entrada, saida);
-        
-        ruas.get(idRua).registrarEvento(evento);
-        frota.get(idVeiculo).registrarEvento(evento);
+    public void registrar(String placa, TipoVeiculo t) {
+        frota.add(new Veiculo(t, placa));
+        // Pegar todos os eventos de estacionamento no banco de dados.
     }
     
 }

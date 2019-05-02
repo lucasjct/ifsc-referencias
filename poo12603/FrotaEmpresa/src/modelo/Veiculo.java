@@ -24,7 +24,7 @@ public class Veiculo implements ContainerEventos {
     }
     
     @Override
-    public void registrarEvento(EventoEstacionamento e) {
+    public void registrar(EventoEstacionamento e) {
         eventos.add(e);
     }
     
